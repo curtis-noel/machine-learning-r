@@ -1,11 +1,13 @@
 # Multiple Linear Regression
 
+# Data Preprocessing Template
+
 # Importing the dataset
 dataset = read.csv('50_Startups.csv')
 
-# Encoding categorical data
-dataset$State = factor(dataset$State,
-                       levels = c('New York', 'California', 'Florida'),
+#encoding categorical data
+dataset$State = factor(dataset$State, 
+                       levels  = c('New York', 'California', 'Florida'),
                        labels = c(1, 2, 3))
 
 # Splitting the dataset into the Training set and Test set
@@ -20,9 +22,13 @@ test_set = subset(dataset, split == FALSE)
 # training_set = scale(training_set)
 # test_set = scale(test_set)
 
-# Fitting Multiple Linear Regression to the Training set
+#fitting multiple linear models
+# verbose
+#regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State)
+#terse
 regressor = lm(formula = Profit ~ .,
                data = training_set)
 
-# Predicting the Test set results
+#predict
 y_pred = predict(regressor, newdata = test_set)
+
