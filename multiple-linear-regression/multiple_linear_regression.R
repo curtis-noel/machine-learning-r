@@ -32,3 +32,9 @@ regressor = lm(formula = Profit ~ .,
 #predict
 y_pred = predict(regressor, newdata = test_set)
 
+#backward elimination
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State, data = dataset)
+summary(regressor)
+
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend, data = dataset)
+summary(regressor)
